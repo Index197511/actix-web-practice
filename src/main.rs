@@ -1,7 +1,13 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+use std::sync::Mutex;
 
-fn index() -> impl Responder {
-    HttpResponse::Ok().body("Hello World")
+struct AppState {
+    app_name: String,
+}
+
+fn index(data: web::Data<AppState>) -> String {
+    let app_name = &data.app_name;
+    format!("Hello {}!", app_name)
 }
 
 fn index2() -> impl Responder {
@@ -11,11 +17,13 @@ fn index2() -> impl Responder {
 fn main() {
     HttpServer::new(|| {
         App::new()
-            .service(
-                web::scope("/app")
-                    .route("/index.html", web::get().to(index))
-                    .route("index2.html", web::get().to(index2))
-                )
+            .data(AppState {
+                app_name: String::from("Actix-web"),
+            })
+        .service(
+            web::scope("/app")
+                .route("/return", web::get().to(index))
+            )
     })
     .bind("127.0.0.1:8088")
     .unwrap()
