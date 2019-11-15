@@ -11,8 +11,11 @@ fn index2() -> impl Responder {
 fn main() {
     HttpServer::new(|| {
         App::new()
-            .route("/", web::get().to(index))
-            .route("/again", web::get().to(index2))
+            .service(
+                web::scope("/app")
+                    .route("/index.html", web::get().to(index))
+                    .route("index2.html", web::get().to(index2))
+                )
     })
     .bind("127.0.0.1:8088")
     .unwrap()
