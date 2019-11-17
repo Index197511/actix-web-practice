@@ -1,2 +1,3 @@
-*.html linguist-vendored
-target/* linguist-vendored
+*.html linguist-documentation
+http_server/target/* linguist-documentation
+test_dir/target/* linguist-documentation
