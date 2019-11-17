@@ -1,0 +1,1 @@
+{"rustc":15611408172799703797,"features":"[\"ahash\", \"ahash-compile-time-rng\", \"default\", \"inline-more\"]","target":10429514197457385088,"profile":9935990280773120926,"path":2040239538229987375,"deps":[[15841576968412726004,"autocfg",false,4306776807486028558]],"local":[{"Precalculated":"0.6.3"}],"rustflags":[],"metadata":6228333144549390726}

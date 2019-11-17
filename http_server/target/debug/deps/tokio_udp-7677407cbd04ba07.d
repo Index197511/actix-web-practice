@@ -1,0 +1,11 @@
+/home/index197511/actix-web-practice/http_server/target/debug/deps/tokio_udp-7677407cbd04ba07.rmeta: /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/lib.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/frame.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/recv_dgram.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/send_dgram.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/socket.rs
+
+/home/index197511/actix-web-practice/http_server/target/debug/deps/libtokio_udp-7677407cbd04ba07.rlib: /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/lib.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/frame.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/recv_dgram.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/send_dgram.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/socket.rs
+
+/home/index197511/actix-web-practice/http_server/target/debug/deps/tokio_udp-7677407cbd04ba07.d: /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/lib.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/frame.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/recv_dgram.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/send_dgram.rs /home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/socket.rs
+
+/home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/lib.rs:
+/home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/frame.rs:
+/home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/recv_dgram.rs:
+/home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/send_dgram.rs:
+/home/index197511/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-udp-0.1.5/src/socket.rs:
