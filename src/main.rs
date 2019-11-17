@@ -32,6 +32,10 @@ fn say_goodBye(data: web::Data<AppStateWithMessage>) -> String{
     *message = format!("{}{}", message, "goodBye ");
     format!("{}", message)
 }
+
+fn othello() -> &'static str {
+    include_str!("../index.html")
+}
 fn main() {
     let counter = web::Data::new(AppStateWithCounter{
         counter: Mutex::new(0),
@@ -54,6 +58,7 @@ fn main() {
                     .route("/hello", web::get().to(say_hello))
                     .route("/goodbye", web::get().to(say_goodBye))
                 )
+           .route("/game", web::get().to(othello)) 
     })
     .bind("127.0.0.1:8088")
     .unwrap()
