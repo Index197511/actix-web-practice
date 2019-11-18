@@ -1,37 +1,24 @@
-use actix_web::{web, App, HttpResponse, HttpServer};
-use std::sync::mpsc;
-use std::thread;
-use futures::future::Future;
+use actix_web::{web, App, HttpRequest, HttpServer, Responder};
+use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
+
+fn index(_req: HttpRequest) -> impl Responder {
+    "Welcome!"
+}
 
 pub fn main() {
-    let (tx, rx) = mpsc::channel();
+    // load ssl keys
+    // to create a self-signed temporary cert for testing:
+    // `openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365 -subj '/CN=localhost'`
+    let mut builder =
+        SslAcceptor::mozilla_intermediate(SslMethod::tls()).unwrap();
+    builder
+        .set_private_key_file("key.pem", SslFiletype::PEM)
+        .unwrap();
+    builder.set_certificate_chain_file("cert.pem").unwrap();
 
-    thread::spawn(move || {
-        let sys = actix_rt::System::new("http-server");
-
-        let addr = HttpServer::new(|| {
-            App::new().route("/", web::get().to(|| HttpResponse::Ok()))
-        })
-        .bind("127.0.0.1:8088")
+    HttpServer::new(|| App::new().route("/", web::get().to(index)))
+        .bind_ssl("127.0.0.1:8088", builder)
         .unwrap()
-        .shutdown_timeout(60) // <- Set shutdown timeout to 60 seconds
-        .start();
-
-        let _ = tx.send(addr);
-        let _ = sys.run();
-    });
-
-    let addr = rx.recv().unwrap();
-    let _ = addr
-        .pause()
-        .wait()
-        .map(|_| println!("`actix_server::ServerCommand::Pause`"));
-    let _ = addr
-        .resume()
-        .wait()
-        .map(|_| println!("`actix_server::ServerCommand::Resume`"));
-    let _ = addr
-        .stop(true)
-        .wait()
-        .map(|_| println!("`actix_server::ServerCommand::Stop`"));
+        .run()
+        .unwrap();
 }
