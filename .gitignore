@@ -1,4 +1,4 @@
 http_server/target/
 test_dir/target/
 **/*.rs.bk
-*.html
+test_dir/index.html
