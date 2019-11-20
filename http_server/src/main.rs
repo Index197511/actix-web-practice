@@ -1,9 +1,12 @@
 use actix_web::{get, post, App, HttpServer, HttpResponse, Responder};
  
 #[get("/get")]
-fn get() -> impl Responder {
-    HttpResponse::Ok().body("GET")
+fn get() -> HttpResponse {
+    HttpResponse::Ok()
+        .content_type("text/html")
+        .body(include_str!("index.html"))
 }
+
  
 #[post("/post")]
 fn post(a: String) -> (){
