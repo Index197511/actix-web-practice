@@ -12,11 +12,18 @@ fn post(a: String) -> (){
     println!("{}", a);
 }
 
+fn test() -> HttpResponse {
+    HttpResponse::Ok()
+        .content_type("text/plain")
+        .body("Test")
+}
+
 fn app_config(config: &mut web::ServiceConfig) {
     config.service(
         web::scope("")
             .service(web::resource("/game").route(web::get().to(get)))
             .service(web::resource("/post").route(web::post().to(post)))
+            .service(web::resource("/test").route(web::get().to(test)))
         );
 }
  
