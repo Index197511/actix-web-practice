@@ -1,5 +1,6 @@
 http_server/target/
 test_dir/target/
 request_handler/target/
+ssl/target/
 **/*.rs.bk
 index.html
